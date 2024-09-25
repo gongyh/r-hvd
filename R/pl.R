@@ -1,3 +1,4 @@
+
 pl <- function(Y, A, F_r, Fs) {
   # Decomposed components and Hilbert spectrum presentation
   
@@ -52,9 +53,9 @@ pl <- function(Y, A, F_r, Fs) {
   rgl::view3d(-50, 70)
 }
 
-# Example
-om <- 0.2 + 0.12 * cos(0.4 * (0:1023))
-x <- cos(cumsum(om))
-result <- hvd(x, 3, 0.05)
-pl(result$Y, result$A, result$F_r, 2 * pi)
+# # Example
+# om <- 0.2 + 0.12 * cos(0.4 * (0:1023))
+# x <- cos(cumsum(om))
+# result <- hvd(x, 3, 0.05)
+# pl(result$Y, result$A, result$F_r, 2 * pi)
 

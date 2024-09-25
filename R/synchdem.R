@@ -1,4 +1,3 @@
-library(pracma)
 
 synchdem <- function(x, omega_i, fp) {
   # Synchronous demodulation of the component "xi" with the frequency 
@@ -7,11 +6,11 @@ synchdem <- function(x, omega_i, fp) {
   
   x <- as.vector(x)
   om <- as.vector(omega_i)
-  xH <- hilbert(x)  # Hilbert transform via FIR filter
+  xH <- Im(hht::HilbertTransform(x))  # Hilbert transform via FIR filter
   A2 <- (xH^2 + x^2)
   A <- sqrt(A2)
   Am <- mean(A[200:(length(x) - 200)])  # A, amplitude
-  cs <- cumtrapz(om)
+  cs <- pracma::cumtrapz(om)
   xc <- Am * cos(cs)
   xs <- Am * sin(cs)
   x1 <- x * xc
@@ -25,7 +24,7 @@ synchdem <- function(x, omega_i, fp) {
   AsinM <- lpf(Asin, fp)
   Ai <- sqrt(abs((AcosM)^2 + (AsinM)^2))
   phi <- atan2(AsinM, AcosM)  # phase shift correction  
-  xi <- Ai * cos(cumtrapz(om) + phi)
+  xi <- Ai * cos(pracma::cumtrapz(om) + phi)
   
   return(list(xi = xi, Ai = Ai, phi = phi))
 }
