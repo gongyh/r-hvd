@@ -43,6 +43,11 @@ hvd <- function(x, n, fp) {
   }
   
   x <- as.vector(x)
+  if (length(x) < 691) {
+    print("The minimum of points in time domain is 230*3+1 = 691")
+    return(list(Y = NULL, A = NULL, om_r = NULL, dev = NULL))
+  }
+  
   s <- numeric(n + 1)
   s[1] <- sd(x)
   
