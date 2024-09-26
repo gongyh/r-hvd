@@ -16,6 +16,6 @@ test_that("hvd works", {
        xlab = 'Points', ylab = 'Signal Components')
   
   library(stats)
-  spec.pgram(x)
+  plot(spec.pgram(x),log="dB")
   
 })
