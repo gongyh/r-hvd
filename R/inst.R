@@ -1,7 +1,7 @@
 
 inst <- function(x, Fs) {
   x <- as.vector(x)
-  xH <- hilbfft(x)  # Hilbert transform via FIR filter
+  xH <- hilbfir(x)  # Hilbert transform via FIR filter
   A2 <- (xH^2 + x^2)
   A <- sqrt(A2)  # Envelope
   Xc <- x + 1i * xH  # Analytic signal

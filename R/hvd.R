@@ -56,16 +56,18 @@ hvd <- function(x, n, fp) {
   om_r <- matrix(0, nrow = length(x), ncol = n)
   
   for (k in 1:n) {
-    inst_result <- inst(x, 1)
-    At <- inst_result[[1]]
-    Ft <- inst_result[[2]]
-    phit <- inst_result[[3]]
+    #inst_result <- inst(x, 1)
+    #At <- inst_result[[1]]
+    #Ft <- inst_result[[2]]
+    #phit <- inst_result[[3]]
     
+    Ft <- inst(x, 1)$F # Instantaneous frequency
     omf <- 2 * pi * lpf(Ft, fp)  # Angular Frequency lowpass filtering (Smoothing)
+    
     synchdem_result <- synchdem(x, omf, fp)
     yi <- synchdem_result[[1]]
     Ai <- synchdem_result[[2]]
-    phi <- synchdem_result[[3]]
+    #phi <- synchdem_result[[3]]
     
     Y[, k] <- yi
     A[, k] <- Ai

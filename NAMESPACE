@@ -2,5 +2,7 @@
 
 export(hvd)
 export(pl)
-importFrom(stats,filter)
+importFrom(hht,HilbertTransform)
+importFrom(pracma,cumtrapz)
+importFrom(signal,filter)
 importFrom(stats,sd)

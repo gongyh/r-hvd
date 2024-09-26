@@ -1,4 +1,4 @@
-#' @importFrom stats filter
+#' @importFrom signal filter
 hilbfir <- function(x) {
   x <- as.vector(x)
   # A length N=231 Remez Hilbert transformer with filtering procedure
@@ -13,10 +13,10 @@ hilbfir <- function(x) {
   # 90 degree – phase forward and reverse digital filtering initial signal and Hilbert projection
   n <- ceiling((N + 1) / 2)
   l <- length(x)
-  xH <- filter(h, x)
+  xH <- signal::filter(h, x)
   xH <- xH[n:(l - n - 1)]
   xb <- x[l:(l - 3 * N)]
-  xHb <- filter(h, xb)
+  xHb <- signal::filter(h, xb)
   xHb <- xHb[(3 * N):(n)]
   xH <- c(xH, xHb[(3 * N + 2 - 3 * n):(3 * N - n + 1)])
   
