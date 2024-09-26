@@ -1,4 +1,4 @@
-
+#' @importFrom stats filter
 hilbfir <- function(x) {
   x <- as.vector(x)
   # A length N=231 Remez Hilbert transformer with filtering procedure

@@ -12,6 +12,7 @@
 #' \item{A}{A matrix of the amplitudes of the decomposed signal components.}
 #' \item{om_r}{A matrix of the angular frequencies of the decomposed signal components.}
 #' \item{dev}{A vector of the relative standard deviation of the components.}
+#' @importFrom stats sd
 #' @export
 #' @examples
 #' om <- 0.2 + 0.12 * cos(0.4 * (0:1023))
@@ -25,7 +26,8 @@
 #' 
 #' par(mfrow = c(2, 1))
 #' plot(x, type = 'l', xlim = c(400, 600), ylim = c(-1.1, 1.1), ylab = 'Initial signal')
-#' plot(Y[,1], type = 'l', col=1, xlim = c(400, 600), ylim = c(-1.1, 1.1), xlab = 'Points', ylab = 'Signal Components')
+#' plot(Y[,1], type = 'l', col=1, xlim = c(400, 600), ylim = c(-1.1, 1.1), 
+#'      xlab = 'Points', ylab = 'Signal Components')
 #' lines(Y[,2], col = 2)
 #' lines(Y[,3], col = 3)
 #' 

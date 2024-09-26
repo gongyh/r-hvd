@@ -37,7 +37,8 @@ dev <- result$dev
 
 par(mfrow = c(2, 1))
 plot(x, type = 'l', xlim = c(400, 600), ylim = c(-1.1, 1.1), ylab = 'Initial signal')
-plot(Y[,1], type = 'l', col=1, xlim = c(400, 600), ylim = c(-1.1, 1.1), xlab = 'Points', ylab = 'Signal Components')
+plot(Y[,1], type = 'l', col=1, xlim = c(400, 600), ylim = c(-1.1, 1.1), 
+     xlab = 'Points', ylab = 'Signal Components')
 lines(Y[,2], col = 2)
 lines(Y[,3], col = 3)
 
