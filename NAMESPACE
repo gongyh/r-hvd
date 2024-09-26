@@ -2,7 +2,5 @@
 
 export(hvd)
 export(pl)
-importFrom(rgl,plot3d)
-importFrom(rgl,view3d)
 importFrom(stats,filter)
 importFrom(stats,sd)

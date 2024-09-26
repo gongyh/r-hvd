@@ -8,8 +8,6 @@
 #' @param F_r A matrix of component relative angular frequencies.
 #' @param Fs The sampling frequency.
 #' @return This function does not return a value but produces plots.
-#' @importFrom rgl plot3d
-#' @importFrom rgl view3d
 #' @export
 #' @examples
 #' om <- 0.2 + 0.12 * cos(0.4 * (0:1023))
@@ -54,7 +52,7 @@ pl <- function(Y, A, F_r, Fs) {
   graphics::plot(t, rowSums(Y[pp, , drop=FALSE]), type='l', xlab='Time, s', ylab='Y', main='Sum of components')
   graphics::grid()
   
-  rgl::plot3d(t[seq(1, length(pp), by=dec)], F[pp[seq(1, length(pp), by=dec)], ], A[pp[seq(1, length(pp), by=dec)], ], col=c[k], type='h', xlab='Time, s', ylab='Frequency, Hz', zlab='Amplitude')
-  graphics::title(main='Hilbert spectrum')
-  rgl::view3d(-50, 70)
+  # rgl::plot3d(t[seq(1, length(pp), by=dec)], F[pp[seq(1, length(pp), by=dec)], ], A[pp[seq(1, length(pp), by=dec)], ], col=c[k], type='h', xlab='Time, s', ylab='Frequency, Hz', zlab='Amplitude')
+  # graphics::title(main='Hilbert spectrum')
+  # rgl::view3d(-50, 70)
 }
